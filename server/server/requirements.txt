@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+mealpy
+imageio
+Django
+djangorestframework
+django-cors-headers
+psycopg2-binary
+csvvalidator

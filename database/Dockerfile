@@ -1,0 +1,4 @@
+FROM postgres:12
+
+ENV PGUSER=postgres
+ENV POSTGRES_PASSWORD=pass

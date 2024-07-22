@@ -1,0 +1,5 @@
+./input_location.txt
+./.idea/*
+
+*.pyc
+**/__pychache__/

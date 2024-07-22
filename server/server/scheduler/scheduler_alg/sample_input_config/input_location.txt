@@ -1,0 +1,11 @@
+[DEFAULT]
+location = /home/lagosa/UTCN/AN4/Licenta/EnergyHubs-Aggregation/Implementation/scheduler_source_code/input_data/survey_data
+output_location = .
+
+device_info_file = DeviceBasicData
+device_usage_file = DeviceUsage
+comfort_file = DeviceComfort
+target_consumption_file = TargetConsumption
+solution_file = solution
+
+optimization_config_file = Configuration.properties

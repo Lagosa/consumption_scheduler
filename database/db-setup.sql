@@ -1,0 +1,3 @@
+CREATE USER licenta WITH PASSWORD 'pass';
+GRANT ALL PRIVILEGES ON DATABASE energymanagement TO licenta;
+GRANT ALL PRIVILEGES ON SCHEMA public TO licenta;

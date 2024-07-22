@@ -1,0 +1,5 @@
+scheduler_alg/charts/
+scheduler_alg/input_location.txt
+solution/
+*.pyc
+**/__pychache__/

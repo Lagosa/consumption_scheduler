@@ -1,0 +1,80 @@
+APARTMENT_ID = 'ap_id'
+DEVICE_ID = 'dev_id'
+NAME = 'name'
+CONSUMPTION = 'consumption'
+IS_DEFERRABLE = 'is_deferrable'
+MIN_USAGE_HOURS = 'min_usage_hours'
+HOUR_0 = '0'
+HOUR_1 = '1'
+HOUR_2 = '2'
+HOUR_3 = '3'
+HOUR_4 = '4'
+HOUR_5 = '5'
+HOUR_6 = '6'
+HOUR_7 = '7'
+HOUR_8 = '8'
+HOUR_9 = '9'
+HOUR_10 = '10'
+HOUR_11 = '11'
+HOUR_12 = '12'
+HOUR_13 = '13'
+HOUR_14 = '14'
+HOUR_15 = '15'
+HOUR_16 = '16'
+HOUR_17 = '17'
+HOUR_18 = '18'
+HOUR_19 = '19'
+HOUR_20 = '20'
+HOUR_21 = '21'
+HOUR_22 = '22'
+HOUR_23 = '23'
+
+DETAIL_FILE_HEADERS = (
+    APARTMENT_ID,
+    DEVICE_ID,
+    NAME,
+    CONSUMPTION,
+    IS_DEFERRABLE,
+    MIN_USAGE_HOURS
+)
+
+HOURLY_INFORMATION_HEADER = (
+    APARTMENT_ID,
+    DEVICE_ID,
+    HOUR_0,
+    HOUR_1,
+    HOUR_2,
+    HOUR_3,
+    HOUR_4,
+    HOUR_5,
+    HOUR_6,
+    HOUR_7,
+    HOUR_8,
+    HOUR_9,
+    HOUR_10,
+    HOUR_11,
+    HOUR_12,
+    HOUR_13,
+    HOUR_14,
+    HOUR_15,
+    HOUR_16,
+    HOUR_17,
+    HOUR_18,
+    HOUR_19,
+    HOUR_20,
+    HOUR_21,
+    HOUR_22,
+    HOUR_23,
+)
+
+COMFORT_FILE_HEADERS = HOURLY_INFORMATION_HEADER
+
+USAGE_FILE_HEADERS = HOURLY_INFORMATION_HEADER
+
+TARGET_CURVE_HEADERS = HOURLY_INFORMATION_HEADER[2:]
+
+COMFORT_VALUES = [0, 1, 2]
+USAGE_VALUES = [0, 1]
+
+
+

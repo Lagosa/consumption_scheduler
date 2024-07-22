@@ -1,0 +1,78 @@
+version: '3'
+
+services:
+  postgres-server-database:
+    image: postgres-server-database
+    build:
+      context: ./
+      dockerfile: ./database/Dockerfile
+    container_name: postgres-server-database
+    restart: always
+    volumes:
+      - ./database/db-init.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./database/db-setup.sql:/docker-entrypoint-initdb.d/2.sql
+      - ./database/data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-p", "5432"]
+      interval: 10s
+      retries: 5
+      timeout: 10s
+    environment:
+      - PGUSER=postgres
+      - POSTGRES_PASSWORD=pass
+    networks:
+      licenta-network:
+        ipv4_address: 172.19.0.10
+        
+  backend-server:
+    image: backend-server
+    build:
+      context: ./server/
+      dockerfile: ./Dockerfile
+    container_name: backend-server
+    restart: always
+    volumes:
+      - ./server/server:/code
+    environment:
+      - licenta_db_name=energymanagement
+      - licenta_db_user=licenta
+      - licenta_db_pass=pass
+      - licenta_db_ip=172.19.10
+      - licenta_db_port=5432
+    ports:
+      - 8000:8000
+    depends_on: 
+      - postgres-server-database
+    networks:
+      licenta-network:
+        ipv4_address: 172.19.0.20
+        
+  frontend-server:
+    image: frontend-server
+    build:
+      context: ./frontend/
+      dockerfile: ./Dockerfile
+    container_name: frontend-server
+    restart: always
+    volumes:
+      - ./frontend:/app
+    depends_on: 
+      - backend-server
+    ports:
+      - 8080:8080
+      - 80:80
+      - 3001:80
+    networks:
+      licenta-network:
+        ipv4_address: 172.19.0.30
+
+volumes:
+  postgres-server-database:
+    driver:
+      local
+
+networks:
+  licenta-network:
+    external: true
